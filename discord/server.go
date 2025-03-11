@@ -27,8 +27,16 @@ func NewBuddy() *Buddy {
 		Router: handler.New(),
 	}
 
+	// Register handlers here
 	buddy.Router.Group(func(r handler.Router) {
 		r.Command("/ping", buddy.PingHandler)
+	})
+
+	buddy.Router.Group(func(r handler.Router) {
+		r.Route("/ctftime", func(r handler.Router) {
+			r.Command("/events", buddy.GetAllEventsHandler)
+			r.Command("/event", buddy.GetOneEventHandler)
+		})
 	})
 
 	return buddy

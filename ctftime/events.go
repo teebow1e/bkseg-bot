@@ -57,7 +57,7 @@ func (ctc *CTFTimeClient) GetEventsByPeriod(start int, end int) ([]CTFEvent, err
 func (ctc *CTFTimeClient) GetSpecificEvent(id int) (CTFEvent, error) {
 	eventUrl := fmt.Sprintf("https://ctftime.org/api/v1/events/%d/", id)
 	var event CTFEvent
-	err := ctc.CallAndParseAPI(eventUrl, event)
+	err := ctc.CallAndParseAPI(eventUrl, &event)
 	if err != nil {
 		return CTFEvent{}, err
 	}

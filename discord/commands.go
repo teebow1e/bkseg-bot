@@ -29,4 +29,26 @@ var commands = []discord.ApplicationCommandCreate{
 			},
 		},
 	},
+	// CTFTime commands
+	discord.SlashCommandCreate{
+		Name:        "ctftime",
+		Description: "not sure - but ctftime :D",
+		Options: []discord.ApplicationCommandOption{
+			discord.ApplicationCommandOptionSubCommand{
+				Name:        "events",
+				Description: "get all events",
+			},
+			discord.ApplicationCommandOptionSubCommand{
+				Name:        "event",
+				Description: "get a specific event",
+				Options: []discord.ApplicationCommandOption{
+					discord.ApplicationCommandOptionInt{
+						Name:        "id",
+						Description: "ID of CTFTime event",
+						Required:    true,
+					},
+				},
+			},
+		},
+	},
 }
